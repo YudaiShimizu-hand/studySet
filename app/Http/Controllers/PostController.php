@@ -29,4 +29,9 @@ class PostController extends Controller
         $post->save();
         return redirect()->route('posts.index');
     }
+
+    public function show(Post $post)
+    {
+        return view('posts.show', $post);
+    }
 }

@@ -19,7 +19,7 @@
             @foreach($posts as $post)
             <tr>
                 <td>
-                    <a href="">
+                    <a href="{{ route('posts.show', $post)}}">
                         <p>{{ $post->day }}</p>
                     </a>
                 </td>
