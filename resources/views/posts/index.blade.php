@@ -8,5 +8,25 @@
 </head>
 <body>
     <h1>ハロー</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>日付</th>
+                <th>タイトル</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($posts as $post)
+            <tr>
+                <td>
+                    <a href="">
+                        <p>{{ $post->day }}</p>
+                    </a>
+                </td>
+                <td>{{ $post->title }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </body>
 </html>
