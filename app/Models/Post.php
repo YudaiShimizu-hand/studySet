@@ -15,4 +15,8 @@ class Post extends Model
             'score',
             'body'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
