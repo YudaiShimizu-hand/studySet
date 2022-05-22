@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return view('posts.index')->with(['posts' => $posts]);
     }
 
@@ -32,6 +32,6 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts.show', $post);
+        return view('posts.show', $post)->with(['post' => $post]);
     }
 }

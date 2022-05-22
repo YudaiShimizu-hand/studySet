@@ -16,6 +16,7 @@
             </tr>
         </thead>
         <tbody>
+            <a href="{{route('posts.create')}}">新しい登録</a>
             @foreach($posts as $post)
             <tr>
                 <td>

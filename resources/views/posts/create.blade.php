@@ -35,6 +35,7 @@
             </div>
             <input type="submit" value="登録">
         </form>
+        <a href="{{route('posts.index')}}">戻る</a>
     </div>
 </body>
 </html>
