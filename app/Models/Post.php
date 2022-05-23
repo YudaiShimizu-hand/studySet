@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+
 
 class Post extends Model
 {
@@ -13,10 +15,20 @@ class Post extends Model
             'day',
             'time',
             'score',
-            'body'
+            'body',
+            'user_id'
     ];
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+        //保存時にuser_idをログインユーザーに設定
+        self::saving(function($post){
+            $post->user_id = \Auth::id();
+        });
     }
 }

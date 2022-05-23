@@ -40,8 +40,9 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-
-Route::get('/index', 'App\Http\Controllers\PostController@index')->name('posts.index');
-Route::get('/create', 'App\Http\Controllers\PostController@create')->name('posts.create');
-Route::post('/store', 'App\Http\Controllers\PostController@store')->name('posts.store');
-Route::get('/{post}', 'App\Http\Controllers\PostController@show')->name('posts.show');
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('/index', 'App\Http\Controllers\PostController@index')->name('posts.index');
+    Route::get('/create', 'App\Http\Controllers\PostController@create')->name('posts.create');
+    Route::post('/store', 'App\Http\Controllers\PostController@store')->name('posts.store');
+    Route::get('/{post}', 'App\Http\Controllers\PostController@show')->name('posts.show');
+});

@@ -16,9 +16,11 @@
             </tr>
         </thead>
         <tbody>
+            {{Auth::user()->name}}
             <a href="{{route('posts.create')}}">新しい登録</a>
             @foreach($posts as $post)
             <tr>
+                {{-- {{dd($posts)}} --}}
                 <td>
                     <a href="{{ route('posts.show', $post)}}">
                         <p>{{ $post->day }}</p>
