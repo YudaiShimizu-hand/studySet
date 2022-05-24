@@ -15,8 +15,10 @@
         <form action={{route('posts.destroy', $post)}} method="POST">
             @csrf
             @method('delete')
-            <button type="submit">削除</button>
+            <button type="submit" class="btn btn-danger">削除</button>
         </form>
-        <a href="{{route('posts.index')}}">戻る</a>
+        <a href="{{route('posts.index')}}">
+            <button class="btn btn-primary">戻る</button>
+        </a>
     </div>
 </x-app-layout>

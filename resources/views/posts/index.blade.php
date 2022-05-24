@@ -22,22 +22,22 @@
                     <td>
                         @switch($post->score)
                             @case(0)
-                                <p>カス</p>
+                                <p class="p-3 mb-2 bg-danger text-white">DANGER</p>
                                 @break
                             @case(1)
-                                <p>ゴミ</p>
+                                <p class="p-3 mb-2 bg-warning text-white">CAREFUL</p>
                                 @break
                             @case(2)
-                                <p>まあまあ</p>
+                                <p class="p-3 mb-2 bg-secondary text-white">FIGHT</p>
                                 @break
                             @case(3)
-                                <p>ぼちぼち</p>
+                                <p class="p-3 mb-2 bg-success text-white">SOSO</p>
                                 @break
                             @case(4)
-                                <p>やるやん</p>
+                                <p class="p-3 mb-2 bg-info text-white">NICE</p>
                                 @break
                             @case(5)
-                                <p>グレート</p>
+                                <p class="p-3 mb-2 bg-primary text-white">GREAT</p>
                                 @break
                         @endswitch
 
