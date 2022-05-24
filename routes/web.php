@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');  // 変更：welcome → top
 });
 
 Route::get('/dashboard', function () {

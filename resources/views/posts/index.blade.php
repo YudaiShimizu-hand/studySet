@@ -1,7 +1,7 @@
 <x-app-layout>
-    {{Auth::user()->name}}
-    <div class="container">
-        <table>
+    <div class="container mt-5">
+        <a href="{{route('posts.create')}}" class="btn btn-primary">新しい登録</a>
+        <table class="table table-secondary table-striped-columns mt-3">
             <thead>
                 <tr>
                     <th>日付</th>
@@ -10,7 +10,6 @@
                 </tr>
             </thead>
             <tbody>
-                <a href="{{route('posts.create')}}">新しい登録</a>
                 @foreach($posts as $post)
                 <tr>
                     {{-- {{dd($posts)}} --}}
