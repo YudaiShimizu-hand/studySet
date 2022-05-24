@@ -12,7 +12,8 @@ class PostController extends Controller
     public function index()
     {
         $user_id = Auth::id();//ログインuserのidを取得
-        $posts = Post::with('user')->where('user_id', '=', $user_id)->get();
+        $posts = Post::with('user')->where('user_id', '=', $user_id)
+                                   ->latest('created_at')->paginate(10);
         // $posts = Post::orderBy('created_at', 'desc')->get();
         // $posts->user_id == Auth::user()->id;
         return view('posts.index')->with(['posts' => $posts]);
