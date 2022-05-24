@@ -26,6 +26,15 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|unique:posts|max:255',
+            'day' => 'required',
+            'time' => 'required|digits_between:0,24',
+            'score' => 'required|digits_between:0,5',
+            'body' => 'required',
+            ]);
+
+
         $post = new Post();
         $post->title = $request->title;
         $post->day = $request->day;
