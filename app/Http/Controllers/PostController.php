@@ -15,7 +15,7 @@ class PostController extends Controller
         $posts = Post::with('user')->where('user_id', '=', $user_id)->get();
         // $posts = Post::orderBy('created_at', 'desc')->get();
         // $posts->user_id == Auth::user()->id;
-        return view('posts.index')->with(['posts' => $posts, 'countScore' => $countScore]);
+        return view('posts.index')->with(['posts' => $posts]);
     }
 
     public function create()
