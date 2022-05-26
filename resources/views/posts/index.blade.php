@@ -88,6 +88,7 @@
                         var options ={
                             title: '学習の自己満足度',
                             is3D: true,
+                            colors: ['#FF0000', '#FFFF00', '#C0C0C0', '#008000', '#00FFFF', '#0000FF' ]
                         };
                         var chart = new google.visualization.PieChart(document.getElementById('chart'));
 
