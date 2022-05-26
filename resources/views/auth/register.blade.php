@@ -1,9 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            <h1>Study Set</h1>
         </x-slot>
 
         <!-- Validation Errors -->
@@ -13,6 +11,7 @@
             @csrf
 
             <!-- Name -->
+            <h3>REGISTER</h3>
             <div>
                 <x-label for="name" :value="__('Name')" />
 
