@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container mt-5">
         <div class="row">
-            <div class="col">
+            <div class="col-sm-6">
                 <a href="{{route('posts.create')}}" class="btn btn-primary">新しい登録</a>
                 <table class="table table-secondary table-striped-columns mt-3">
                     <thead>
@@ -50,23 +50,31 @@
                 </table>
                 {{$posts->links()}}
             </div>
-            <div class="row">
+            <div class="col-sm-4">
                 <div id="chart" style="height:500px;width:800px;"></div>
                 <script>
                     google.charts.load('current', {packages: ['corechart']});
                     google.charts.setOnLoadCallback(drawChart);
 
                     function drawChart(){
+                        var danger = @json($danger);
+                        var careful = @json($careful);
+                        var fight = @json($fight);
+                        var soso = @json($soso);
+                        var nice = @json($nice);
+                        var great = @json($great);
 
                         var data = new google.visualization.DataTable();
                         // var data=google.visualization.arrayToDataTable();
-                        data.addColumn('string', 'アイスの種類');
-                        data.addColumn('number', '売上数');
+                        data.addColumn('string', '満足度');
+                        data.addColumn('number', '評価');
                         data.addRows([
-                            ['バニラ', 3],
-                            ['チョコ', 5],
-                            ['ストロベリー', 1],
-                            ['抹茶', 2]
+                            ['満足度0', danger],
+                            ['満足度1', careful],
+                            ['満足度2', fight],
+                            ['満足度3', soso],
+                            ['満足度4', nice],
+                            ['満足度5', great],
                         ]);
                             // [
                             // ['time'],
@@ -78,7 +86,7 @@
                         //     @endphp
                         // ]);
                         var options ={
-                            title: '学習時間の統計',
+                            title: '学習の自己満足度',
                             is3D: true,
                         };
                         var chart = new google.visualization.PieChart(document.getElementById('chart'));
