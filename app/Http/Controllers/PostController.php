@@ -16,7 +16,42 @@ class PostController extends Controller
                                    ->latest('created_at')->paginate(10);
         // $posts = Post::orderBy('created_at', 'desc')->get();
         // $posts->user_id == Auth::user()->id;
-        return view('posts.index')->with(['posts' => $posts]);
+        $danger = 0;
+        $careful = 0;
+        $fight = 0;
+        $soso = 0;
+        $nice = 0;
+        $great = 0;
+        foreach($posts as $post){
+            if($post->score == 0){
+                $danger += 1;
+            }elseif($post->score == 1){
+                $careful += 1;
+            }
+            elseif($post->score == 2){
+                $fight += 1;
+            }
+            elseif($post->score == 3){
+                $soso += 1;
+            }
+            elseif($post->score == 4){
+                $nice += 1;
+            }
+            elseif($post->score == 5){
+                $great += 1;
+            }
+        }
+        return view('posts.index')
+            ->with(
+                [
+                    'posts' => $posts,
+                    'danger' => $danger,
+                    'careful' => $careful,
+                    'fight' => $fight,
+                    'soso' => $soso,
+                    'nice' => $nice,
+                    'great' => $great
+                ]);
     }
 
     public function create()
